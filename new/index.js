@@ -232,7 +232,7 @@ function drawNewProcess(newProcess){
         })
         .on("mouseout", function(d) {
             d3.select(this).style("cursor", "default");
-        })
+        }) 
         .on("click", function(d) {
             const process_data = d3.select(this.parentNode.parentNode).datum();
             process_data.process_output.push(d);
