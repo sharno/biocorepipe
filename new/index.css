@@ -1,0 +1,26 @@
+
+.process circle {
+    fill: rgb(220, 113, 24);
+    stroke: #6F6F6F;
+    stroke-width: 1.5px;
+}
+
+/* .process circle.dragging {
+    fill: red;
+    stroke: rgb(165, 42, 42);
+} */
+
+.axis line {
+    fill: none;
+    stroke: #ddd;
+}
+
+.process .process-name {
+    font-size: 20;
+    fill: white;
+}
+
+.process .edit-text {
+    font-size: 15;
+    fill: blue;
+}

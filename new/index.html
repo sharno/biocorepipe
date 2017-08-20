@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="form-group">
+        <label for="add-parameter-btn">Add a parameter from Scratch:</label>
+        <button class="btn btn-primary" id="add-parameter-btn">Add a new Parameter</button>
+    </div>
+    <div class="form-group">
+        <label for="add-process-btn">Add a process from Scratch:</label>
+        <button class="btn btn-primary" id="add-process-btn">Add a new Process</button>
+    </div>
+    <div class="form-group">
+        <label for="available-processes">Select and add a ready made process:</label>
+        <select class="form-control" id="available-processes">
+            <option value=""></option>
+        </select>
+        <button class="btn btn-primary" id="add-selected-process-btn">Add selected Process</button>
+    </div>
+    <div class="form-group">
+        <label for="save-all-btn">Save network flow:</label>
+        <button class="btn btn-primary" id="save-all-btn">Save Network flow</button>
+    </div>
+    
+    <!-- New Process Modal -->
+    <div class="modal fade" id="add-new-process-modal" tabindex="-1" role="dialog" aria-labelledby="addNewProcessModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addNewProcessModalLabel">Add new Process</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="process-name">Name of Process</label>
+                            <input type="text" class="form-control" id="process-name" aria-describedby="nameHelp" placeholder="Enter the name of the process">
+                            <small id="nameHelp" class="form-text text-muted">This is just to identify the process and it should be unique among other processes.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="process-version">Version</label>
+                            <input type="number" class="form-control" id="process-version" placeholder="Version">
+                        </div>
+                        <div class="form-group">
+                            <label for="process-script">Script</label>
+                            <textarea class="form-control" id="process-script" rows="3"></textarea>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <select class="form-control">
+                                <option>Default select</option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input">
+                                Check me out
+                            </label>
+                        </div> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-btn-new-process">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- New Parameter Modal -->
+    <div class="modal fade" id="add-new-parameter-modal" tabindex="-1" role="dialog" aria-labelledby="addNewParameterModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="addNewParameterModalLabel">Add new Parameter</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="parameter-name">Name of Parameter</label>
+                            <input type="text" class="form-control" id="parameter-name" aria-describedby="nameHelp" placeholder="Enter the name of the parameter">
+                            <small id="nameHelp" class="form-text text-muted">This is just to identify the parameter and it should be unique among other parameters.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="qualifier">Qualifier</label>
+                            <select class="form-control" id="qualifier">
+                                <option value="file">file</option>
+                                <option value="set">set</option>
+                                <option value="val">val</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="parameter-channel">Channel</label>
+                            <input type="text" class="form-control" id="parameter-channel" placeholder="Channel">
+                        </div>
+                        <div class="form-group">
+                            <label for="parameter-input-text">Input text</label>
+                            <textarea class="form-control" id="parameter-input-text" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="parameter-file-path">File Path</label>
+                            <input type="text" class="form-control" id="parameter-file-path" placeholder="File Path">
+                        </div>
+                        <div class="form-group">
+                            <label for="parameter-file-type">File Type</label>
+                            <input type="text" class="form-control" id="parameter-file-type" placeholder="File Type">
+                        </div>
+                        <div class="form-group">
+                            <label for="parameter-version">Version</label>
+                            <input type="number" class="form-control" id="parameter-version" placeholder="Version">
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <select class="form-control">
+                                <option>Default select</option>
+                            </select>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="checkbox" class="form-check-input">
+                                Check me out
+                            </label>
+                        </div> -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-btn-new-parameter">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="index.js"></script>        
+</body>

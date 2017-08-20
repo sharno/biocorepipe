@@ -139,6 +139,8 @@ class dbfuncs {
 
         $sql = "SELECT pp.id, pp.name, p.name process_name, p.version, type FROM process p, process_parameter pp 
                 WHERE pp.process_id = $process_id $typeExp AND pp.process_id = p.id";
+
+        echo("<script>alert($sql)</script>");
         return self::queryTable($sql);
     }
  

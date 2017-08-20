@@ -117,5 +117,5 @@
 	 </div>
 	</div>
    </div>
-<div id="container" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="container" ondragover="allowDrop(event)"></div>
 <script src="js/pipeline.js"></script>
